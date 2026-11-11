@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07100e" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☼</text></svg>" />
+  <title>Five Nights at Brasil — Vigília na Estação</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game" class="game-shell">
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">☼</span><span>NOITE NA <b>ESTAÇÃO</b></span></div>
+      <div class="night-label">TURNO NOTURNO <strong>01</strong></div>
+      <button class="sound-toggle" id="soundToggle" aria-label="Ativar ou desativar som">♫ <span>SOM</span></button>
+    </header>
+
+    <section class="screen title-screen active" id="titleScreen">
+      <div class="title-copy">
+        <p class="eyebrow">UM JOGO DE SOBREVIVÊNCIA BRASILEIRO</p>
+        <h1>FIVE NIGHTS<br><span>AT BRASIL</span></h1>
+        <p class="title-sub">A última vigília da Estação Estrela.</p>
+        <div class="title-rule"></div>
+        <p class="story">A festa acabou. A chuva chegou.<br>Agora, fique de olho até o primeiro ônibus.</p>
+        <button class="primary-btn" id="startBtn">INICIAR TURNO <span>→</span></button>
+        <p class="microcopy">USE FONE DE OUVIDO · SOBREVIVA ATÉ 06:00</p>
+      </div>
+      <div class="title-art" aria-hidden="true">
+        <div class="moon"></div><div class="distant-city"></div>
+        <div class="title-palms"><i></i><i></i><i></i></div>
+        <div class="mascot-silhouette"><div class="ear e1"></div><div class="ear e2"></div><div class="head"><i></i><i></i><b></b></div><div class="body"></div></div>
+        <div class="title-floor"></div>
+        <div class="neon-sign">ESTAÇÃO<br><small>ESTRELA</small></div>
+      </div>
+      <div class="title-footer"><span>FORTALEZA, CE · 02:13</span><span>© ESTAÇÃO ESTRELA</span></div>
+    </section>
+
+    <section class="screen game-screen" id="gameScreen" aria-label="Sala de segurança">
+      <div class="scene" id="scene">
+        <div class="scene-back"><div class="window"><div class="rain" id="rain"></div><div class="city-lights"></div></div><div class="poster">SORRIA!<br><small>VOCÊ ESTÁ<br>NA ESTAÇÃO</small></div><div class="wall-clock" id="wallClock">02:13</div></div>
+        <div class="doorway left-doorway" id="leftDoorway"><div class="hall-glow"></div><div class="hall-eye" id="leftEye"></div></div>
+        <div class="doorway right-doorway" id="rightDoorway"><div class="hall-glow"></div><div class="hall-eye" id="rightEye"></div></div>
+        <div class="desk"><div class="desk-top"></div><div class="monitor"><div class="monitor-screen"><span>ESTAÇÃO ESTRELA</span><b>VIGILÂNCIA<br>NOTURNA</b></div><div class="monitor-base"></div></div><div class="fan"><i></i><i></i><i></i><b></b></div><div class="cup">☕</div><div class="desk-front"></div></div>
+        <div class="door-shutter left-shutter" id="leftShutter"><span>FECHADO</span></div>
+        <div class="door-shutter right-shutter" id="rightShutter"><span>FECHADO</span></div>
+        <div class="vignette"></div><div class="static-layer" id="staticLayer"></div>
+        <div class="intruder-flash" id="intruderFlash"></div>
+      </div>
+
+      <div class="hud top-hud"><div class="location-chip"><span class="live-dot"></span><span id="viewName">ESCRITÓRIO</span></div><div class="clock-chip"><span>NOITE 1</span><strong id="clock">12 AM</strong></div></div>
+      <div class="status-row"><div class="power-box"><span>ENERGIA</span><strong id="power">100</strong><small>%</small><div class="power-meter"><i id="powerMeter"></i></div></div><div class="usage-box"><span>CONSUMO</span><div class="usage-bars" id="usageBars"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      <div class="side-controls left-controls"><button class="control-btn" id="leftDoorBtn"><span class="control-icon">▥</span><span>PORTA<br>ESQUERDA</span><kbd>A</kbd></button><button class="control-btn light-btn" id="leftLightBtn"><span class="control-icon">✦</span><span>LUZ<br>ESQUERDA</span><kbd>Q</kbd></button></div>
+      <div class="side-controls right-controls"><button class="control-btn light-btn" id="rightLightBtn"><span class="control-icon">✦</span><span>LUZ<br>DIREITA</span><kbd>E</kbd></button><button class="control-btn" id="rightDoorBtn"><span class="control-icon">▥</span><span>PORTA<br>DIREITA</span><kbd>D</kbd></button></div>
+      <button class="camera-toggle" id="cameraToggle"><span class="cam-icon">▣</span><span>MONITOR</span><kbd>ESPAÇO</kbd></button>
+      <div class="camera-panel" id="cameraPanel" aria-hidden="true">
+        <div class="cam-topline"><span><i class="live-dot"></i> SISTEMA DE CÂMERAS</span><span id="camTime">02:13:00</span><button id="closeCameras" aria-label="Fechar câmeras">×</button></div>
+        <div class="cam-view" id="camView"><div class="cam-grid"></div><div class="cam-label" id="camLabel">CAM 01 — SALÃO PRINCIPAL</div><div class="cam-scene-art" id="camSceneArt"><div class="cam-table t1"></div><div class="cam-table t2"></div><div class="cam-mascot" id="camMascot"></div></div><div class="cam-noise"></div><div class="cam-rec">● REC</div></div>
+        <div class="camera-bottom"><div class="cam-map"><button class="cam-node selected" data-cam="salon">01<span>SALÃO</span></button><button class="cam-node" data-cam="kitchen">02<span>COZINHA</span></button><button class="cam-node" data-cam="arcade">03<span>FLIPERAMA</span></button><button class="cam-node" data-cam="hall">04<span>CORREDOR</span></button><button class="cam-node" data-cam="stage">05<span>PALCO</span></button></div><div class="cam-tip">CLIQUE NOS PONTOS PARA TROCAR DE CÂMERA</div></div>
+      </div>
+      <div class="toast" id="toast" role="status"></div>
+    </section>
+
+    <section class="screen end-screen" id="endScreen"><div class="end-content"><div class="end-icon" id="endIcon">☀</div><p class="eyebrow" id="endEyebrow">TURNO CONCLUÍDO</p><h2 id="endTitle">06:00</h2><p id="endText">O primeiro ônibus chegou. Você sobreviveu à noite.</p><button class="primary-btn" id="restartBtn">JOGAR NOVAMENTE <span>↻</span></button></div></section>
+    <div class="mobile-hint" id="mobileHint">TOQUE NOS BOTÕES PARA SOBREVIVER</div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
